@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Дневник{% endblock %}
+
+{% block box %}
+
+<h2 id="dairy_header">ДНЕВНИК</h2>
+<aside id="aside_main1">
+    <ul id="ul_dairy">
+        <li><a href="{% url 'add' %}"><button id="dairy_add" type="button" class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить запись</button></a></li>
+        <li><a href="{% url 'home' %}"><button id="dairy_remove" type="button" class="btn btn-success">Удалить запись</button></a></li>
+        <li><a href="{% url 'home' %}"><button id="dairy_view" type="button" class="btn btn-success">Просмотреть все записи</button></a></li>
+    </ul>
+ </aside>
+<div class="alert alert-warning">
+{% for el in strings %}
+    <h4>{{ el.title }}</h4>
+    <p>{{ el.main_field }}</p>
+    <p>{{ el.date }}</p><br>
+{% endfor %}
+</div>
+<a href="{% url 'home' %}"><button id="dairy_button" type="button" class="btn btn-success">Перейти на главную</button></a>
+
+{% endblock %}
+

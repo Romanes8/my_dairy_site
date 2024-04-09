@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Добавить запись{% endblock %}
+
+{% block box %}
+<h2 id="dairy_header">ДОБАВЛЕНИЕ ЗАПИСИ</h2>
+ <aside id="aside_main1">
+    <ul id="ul_dairy">
+        <li><a href="{% url 'add' %}"><button id="dairy_add" type="button" class="btn btn-info"><i class="fas fa-plus-circle"></i>Добавить запись</button></a></li>
+        <li><a href="{% url 'home' %}"><button id="dairy_remove" type="button" class="btn btn-success">Удалить запись</button></a></li>
+        <li><a href="{% url 'home' %}"><button id="dairy_view" type="button" class="btn btn-success">Просмотреть все записи</button></a></li>
+    </ul>
+ </aside>
+<form id="form_add" method="post">
+    {% csrf_token %}
+    {{ form.title }}<br>
+    {{ form.main_field }}<br>
+    {{ form.date }}<br>
+    <span>{{ error }}</span>
+    <button class="btn btn-succes" type="submit">Добавить запись</button>
+</form>
+<a href="{% url 'home' %}"><button id="dairy_button" type="button" class="btn btn-success">Перейти на главную</button></a>
+{% endblock %}

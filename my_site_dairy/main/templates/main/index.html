@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+
+{% block title %}Главная{% endblock %}
+
+{% block box %}
+<h2 id="index_header">МОЯ СТРАНИЦА-ДНЕВНИК</h2>
+    <aside id="aside_main1">
+       <img src="{% static 'main/img/main_foto.jpg' %}" alt="" id="img_main_foto">
+    </aside>
+
+
+<a href="{% url 'dairy' %}"><button id="dairy_button" type="button" class="btn btn-success">Перейти в дневник</button></a>
+{% endblock %}
